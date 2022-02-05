@@ -1,5 +1,10 @@
+from argparse import ArgumentParser
+
+
 def main():
-    pass
+    args = ArgumentParser(
+            discription="display file contents in headecimal and ascii"
+            )
 
 
 if __name__ == "__main__":
