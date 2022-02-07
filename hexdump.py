@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from io import BufferedReader
 
 
 def main():
@@ -25,11 +26,11 @@ def open_file_and_parse(filename: str) -> None:
     Output: Null
     """
     with open(filename, 'rb') as f:
-        pass
+        _parse_file(f)
     return None
 
 
-def _parse_file(Data: file) -> None:
+def _parse_file(Data: BufferedReader) -> None:
     """
     parses the data of the file for as long as there is data
     to parse
