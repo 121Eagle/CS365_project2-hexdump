@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
 
 
 def main():
@@ -8,7 +8,7 @@ def main():
 
     args.add_argument(
             "file",
-            type=FileType,
+            type=str,
             help="a file that is parsed by the system"
             )
 
