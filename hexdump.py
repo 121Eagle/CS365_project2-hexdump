@@ -13,10 +13,10 @@ def main():
             help="a file that is parsed by the system"
             )
 
-    open_file_and_parse(args.parse_args().file)
+    hexdump(args.parse_args().file)
 
 
-def open_file_and_parse(filename: str) -> None:
+def hexdump(filename: str) -> None:
     """
     Function takes in a filename and then proceeds
     to open it and begin the act of dumping the hex
