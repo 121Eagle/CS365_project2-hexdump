@@ -16,6 +16,28 @@ def main():
 
 
 def open_file_and_parse(filename: str) -> None:
+    """
+    Function takes in a filename and then proceeds
+    to open it and begin the act of dumping the hex
+    ----
+    Input: filename of file to be dumped
+    ----
+    Output: Null
+    """
+    with open(filename, 'rb') as f:
+        pass
+    return None
+
+
+def _parse_file(Data: file) -> None:
+    """
+    parses the data of the file for as long as there is data
+    to parse
+    """
+    pass
+
+
+def _format_text_portion(data: bytes) -> str:
     pass
 
 
