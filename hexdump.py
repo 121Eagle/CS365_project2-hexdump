@@ -36,8 +36,20 @@ def _parse_file(Data: BufferedReader) -> None:
     parses the data of the file for as long as there is data
     to parse
     """
-    for bytes_counted in count(step=16):
-        byte_values = data.read(16)
+    totalLen = 0
+    x = Data.read(16)
+    while x != b"":
+        totalLen += len(x)
+        print(string_processing(x))
+        x = Data.read(16)
+
+
+UNPRINTABLE_BYTES = bytearray(range(0, 32)) + bytes(range(127, 256))
+
+TRANSFORMATION_TABLE = bytes.maketrans(
+        UNPRINTABLE_BYTES,
+        b"." * len(UNPRINTABLE_BYTES)
+        )
 
 
 def string_processing(Data: bytes) -> str:
@@ -45,12 +57,7 @@ def string_processing(Data: bytes) -> str:
     Returns a string value that is what the bytes are as interpreted
     as a string
     """
-    pass
-
-
-def hexdata_print(data: bytes) -> list[int]:
-
-    return [int(byte, base=16) for byte in data]
+    return Data.translate(TRANSFORMATION_TABLE).decode(encoding="ascii")
 
 
 def _format_text_portion(data: bytes) -> str:
