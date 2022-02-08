@@ -37,11 +37,13 @@ def _parse_file(Data: BufferedReader) -> None:
     to parse
     """
     totalLen = 0
-    x = Data.read(16)
-    while x != b"":
-        totalLen += len(x)
-        print(f"{totalLen:010x} {hex_format(x)} {string_processing(x)}")
+    while True:
         x = Data.read(16)
+        if x == b"":
+            break
+        print(f"{totalLen:08x} {hex_format(x)} {string_processing(x)}")
+        totalLen += len(x)
+    print(f"{totalLen:08x}")
 
 
 def hex_format(Data: bytes) -> str:
