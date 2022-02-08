@@ -57,7 +57,10 @@ def string_processing(Data: bytes) -> str:
     Returns a string value that is what the bytes are as interpreted
     as a string
     """
-    return Data.translate(TRANSFORMATION_TABLE).decode(encoding="ascii")
+    processed_string = Data.translate(
+            TRANSFORMATION_TABLE
+            ).decode(encoding="ascii")
+    return f" |{processed_string}|"
 
 
 def _format_text_portion(data: bytes) -> str:
