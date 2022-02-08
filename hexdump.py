@@ -40,8 +40,12 @@ def _parse_file(Data: BufferedReader) -> None:
     x = Data.read(16)
     while x != b"":
         totalLen += len(x)
-        print(string_processing(x))
+        print(f"{totalLen:010x} {hex_format(x)} {string_processing(x)}")
         x = Data.read(16)
+
+
+def hex_format(Data: bytes) -> str:
+    return f" {Data[:8].hex(' ', 1)}  {Data[8:].hex(' ', -1)} "
 
 
 UNPRINTABLE_BYTES = bytearray(range(0, 32)) + bytes(range(127, 256))
